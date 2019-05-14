@@ -1,0 +1,20 @@
+language: java
+
+sudo: false
+
+before_install:
+ - chmod +x gradlew
+
+jdk:
+  - oraclejdk8
+
+notifications:
+  email:
+    recipients:
+      - cnbaliog@up.edu.ph
+    on_success: always
+    on_failure: always
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+  - echo "All Tests Passed"
